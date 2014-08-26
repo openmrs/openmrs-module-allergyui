@@ -3,3 +3,53 @@
 
 $darkGray: #666;
 $green: #51A351;
+
+#allergy label {
+  font-weight: bold;
+}
+
+.horizontal {
+  display: table;
+}
+
+.horizontal > * {
+  display: table-cell;
+}
+
+.tabs {
+    width: 100%;
+}
+
+.tabs > div {
+    width: 50%;
+}
+
+#reactions > div {
+  float: left;
+}
+
+#reactions > div:nth-child(even) {
+  clear: both;
+}
+
+form, #allergens, #reactions {
+    border: 1px solid #DDD;
+    border-collapse: collapse;
+    padding: 20px;
+}
+
+.tab {
+    padding-top: 0px !important;
+}
+
+.tab > label {
+    padding-bottom: 15px;
+}
+
+form > div {
+    margin-bottom: 15px;
+}
+
+.inputs > div, .inputs > label  {
+    padding-right: 20px;
+}

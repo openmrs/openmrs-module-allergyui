@@ -29,6 +29,10 @@ ${ ui.includeFragment("coreapps", "patientHeader", [ patient: patient ]) }
     </thead>
     
     <tbody>
-    
     </tbody>
 </table>
+
+<div id="actions" class="right">
+    <button id="addAlergy" onclick="location.href='${ui.pageLink("allergyui", "allergy", [patientId: patient.id])}'">${ ui.message("allergyui.addNewAllergy") }</button>
+    <button id="noKnownAllergy">${ ui.message("allergyui.noKnownAllergy") }</button>
+</div>
