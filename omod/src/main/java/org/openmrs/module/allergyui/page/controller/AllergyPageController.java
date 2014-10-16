@@ -67,11 +67,12 @@ public class AllergyPageController {
 	public String post(@MethodParam("getAllergy") @BindParams Allergy allergy, @RequestParam("patientId") Patient patient,
 	                   PageModel model, @SpringBean("allergyService") PatientService patientService,
 	                   @SpringBean("allergyProperties") AllergyProperties properties,
-	                   @SpringBean("messageSourceService") MessageSourceService messageService, HttpSession session,
-	                   UiUtils ui) throws Exception {
+	                   @SpringBean("messageSourceService") MessageSourceService messageService,
+	                   @SpringBean("allergyValidator") AllergyValidator validator, HttpSession session, UiUtils ui)
+	    throws Exception {
 		
 		Errors errors = new BeanPropertyBindingResult(allergy, "allergy");
-		new AllergyValidator().validate(allergy, errors);
+		validator.validate(allergy, errors);
 		
 		if (errors.hasErrors()) {
 			addModelErrors(model, errors, session, messageService);
