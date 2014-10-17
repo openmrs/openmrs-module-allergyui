@@ -35,7 +35,7 @@ import org.openmrs.module.allergyapi.AllergyValidator;
 import org.openmrs.module.allergyapi.api.PatientService;
 import org.openmrs.module.uicommons.UiCommonsConstants;
 import org.openmrs.module.uicommons.util.InfoErrorMessageUtil;
-import org.openmrs.ui.framework.CodedValueOrFreeText;
+import org.openmrs.ui.framework.CodedOrFreeTextValue;
 import org.openmrs.ui.framework.UiUtils;
 import org.openmrs.ui.framework.annotation.BindParams;
 import org.openmrs.ui.framework.annotation.MethodParam;
@@ -111,7 +111,7 @@ public class AllergyPageController {
 	                          @RequestParam("patientId") Patient patient,
 	                          @BindParams Allergen allergen,
 	                          @RequestParam(value = "codedAllergen", required = false) Concept codedAllergen,
-	                          @RequestParam(value = "otherCodedAllergen", required = false) CodedValueOrFreeText other,
+	                          @RequestParam(value = "otherCodedAllergen", required = false) CodedOrFreeTextValue other,
 	                          @RequestParam(value = "nonCodedAllergen", required = false) String[] nonCodedAllergen,
 	                          @RequestParam(value = "allergyReactionConcepts", required = false) List<Concept> allergyReactionConcepts,
 	                          @RequestParam(value = "severity", required = false) Concept severity,
