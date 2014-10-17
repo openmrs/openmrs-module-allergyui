@@ -122,13 +122,10 @@ public class AllergyPageController {
 		Allergy allergy;
 		if (allergyId == null) {
 			if (other != null) {
-				Object otherValue = other.getValue();
-				if (otherValue != null) {
-					if (otherValue instanceof Concept) {
-						allergen.setCodedAllergen((Concept) otherValue);
-					} else {
-						allergen.setNonCodedAllergen(otherValue.toString());
-					}
+				if (other.getCodedValue() != null) {
+					allergen.setCodedAllergen(other.getCodedValue());
+				} else if (other.getNonCodedValue() != null) {
+					allergen.setNonCodedAllergen(other.getNonCodedValue());
 				}
 			} else {
 				allergen.setCodedAllergen(codedAllergen); //without this line, i cannot save coded allergens.
