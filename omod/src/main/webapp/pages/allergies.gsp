@@ -9,15 +9,11 @@
         { label: "${ ui.format(patient.familyName) }, ${ ui.format(patient.givenName) }" , link: '${ui.pageLink("coreapps", "clinicianfacing/patient", [patientId: patient.id])}'},
         { label: "${ ui.message("allergyui.allergies") }" }
     ];
-    
-    function removeAllergy(allergy, id) {
-    	jq("#allergyId").val(id);
-    	jq("#removeAllergyMessage").text('${ ui.message("allergyui.removeAllergy.message") }'.replace("{0}", allergy));
-    	showRemoveAllergyDialog(allergy, id);
-    }            
 </script>
 
 ${ ui.includeFragment("coreapps", "patientHeader", [ patient: patient ]) }
+
+${ ui.includeFragment("allergyui", "removeAllergyDialog") }
 
 <% ui.includeJavascript("allergyui", "allergies.js") %>
 
@@ -107,24 +103,3 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
 		</button>
 	</form>
 <% } %>
-
-<%/* DIALOGS */%>
-<div id="allergyui-remove-allergy-dialog" class="dialog" style="display: none">
-    <div class="dialog-header">
-        <h3>${ ui.message("allergyui.removeAllergy") }</h3>
-    </div>
-    <div class="dialog-content">
-        <ul>
-            <li class="info">
-                <span id="removeAllergyMessage"/>
-            </li>
-        </ul>
-        <form method="POST">
-            <input type="hidden" name="patientId" value="${patient.id}"/>
-            <input type="hidden" id="allergyId" name="allergyId" value=""/>
-            <input type="hidden" name="action" value="removeAllergy"/>
-            <button class="confirm right" type="submit">${ ui.message("general.yes") }</button>
-            <button class="cancel">${ ui.message("general.no") }</button>
-        </form>
-    </div>
-</div>
