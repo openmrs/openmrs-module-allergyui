@@ -94,7 +94,7 @@ ${ ui.includeFragment("coreapps", "patientHeader", [ patient: patient ]) }
                     <input ng-model="reaction${reaction.id}" type="checkbox" id="reaction-${reaction.id}" class="allergy-reaction" name="allergyReactionConcepts" value="${reaction.id}" ng-init="reaction${reaction.id} = ${ allergyReactionConcepts.contains(reaction) }" />
                     <label for="reaction-${reaction.id}">${ui.format(reaction)}</label>
                     <% if (reaction.id == otherNonCodedConcept.id) { %>
-                    	<input type="text" maxlength="255" name="reactionNonCoded" ng-show="reaction${reaction.id}" <% if (allergy.reactionNonCoded) { %> value="${allergy.reactionNonCoded}" <% } %>/>
+                    	<input type="text" maxlength="255" name="reactionNonCoded" ng-focus="otherReactionFocus(${reaction.id})" <% if (allergy.reactionNonCoded) { %> value="${allergy.reactionNonCoded}" <% } %>/>
                     <% } %>
                 </li>
             <% } %>
