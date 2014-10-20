@@ -45,6 +45,10 @@ app.controller("allergyController", [ '$scope', function($scope) {
     $scope.otherFieldFocus = function() {
         $('#allergen-' + $scope.allergenType).attr('checked', true);
     };
+
+    $scope.otherReactionFocus = function(reactionId) {
+        $('#reaction-' + reactionId).attr('checked', true);
+    };
     /*
      * This code lets us uncheck radio buttons.
      *
