@@ -121,15 +121,14 @@ public class AllergyPageController {
 		
 		Allergy allergy;
 		if (allergyId == null) {
+			allergen.setCodedAllergen(codedAllergen); //without this line, i cannot save coded allergens.
 			if (other != null) {
 				if (other.getCodedValue() != null) {
 					allergen.setCodedAllergen(other.getCodedValue());
 				} else if (other.getNonCodedValue() != null) {
 					allergen.setNonCodedAllergen(other.getNonCodedValue());
 				}
-			} else {
-				allergen.setCodedAllergen(codedAllergen); //without this line, i cannot save coded allergens.
-			}
+			} 
 			if (!allergen.isCoded() && nonCodedAllergen.length > 0) {
 				allergen.setNonCodedAllergen(nonCodedAllergen[0]);
 			}
