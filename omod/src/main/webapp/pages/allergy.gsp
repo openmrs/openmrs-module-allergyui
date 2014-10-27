@@ -38,9 +38,16 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
 
 <% ui.includeJavascript("allergyui", "allergies.js") %>
 
-<h2>${ title }</h2>
+<div id="allergy" ng-app="allergyApp" ng-controller="allergyController" ng-init="severity = ${ allergy?.severity?.id }; allergenType='${allergy.allergen == null ? "DRUG" : allergy.allergen.allergenType}'; otherConceptId=${otherNonCodedConcept.conceptId}">
 
-<div ng-app="allergyApp" ng-controller="allergyController" ng-init="severity = ${ allergy?.severity?.id }; allergenType='${allergy.allergen == null ? "DRUG" : allergy.allergen.allergenType}'; otherConceptId=${otherNonCodedConcept.conceptId}">
+    <h2 class="inline">${ title }</h2>
+
+    <% if (isEdit) { %>
+        <button type="button" class="cancel inline right" onclick="removeAllergy('${ allergy.allergen }', ${ allergy.id})">
+             ${ ui.message("allergyui.removeAllergy") }
+        </button>
+    <% } %>
+
 	<form method="post" id="allergy" action="${ ui.pageLink("allergyui", "allergy", [patientId: patient.id]) }">
 
         <input type="hidden" name="allergenType" value="{{allergenType}}"/>
@@ -122,11 +129,6 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
 
 	    <div id="actions">
 	        <input type="submit" id="addAllergyBtn" class="confirm right" value="${ ui.message("coreapps.save") }" <% if(!isEdit){ %> ng-disabled="!canSave()" <% } %>/>
-            <% if (isEdit) { %>
-	            <button type="button" class="cancel" onclick="removeAllergy('${ allergy.allergen }', ${ allergy.id})">
-	                 <i class="icon-remove delete-action"></i> ${ ui.message("coreapps.delete") }
-	            </button>
-	        <% } %>
 	        <input type="button" class="cancel" value="${ ui.message("coreapps.cancel") }"
 	         onclick="location.href='${ ui.pageLink("allergyui", "allergies", [patientId: patient.id]) }'" />
 	    </div>
