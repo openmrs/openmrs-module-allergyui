@@ -13,6 +13,14 @@ label {
   }
 }
 
+.inline {
+    display: inline;
+}
+
+#allergy > form {
+    width: 100%;
+}
+
 #allergens, #reactions {
   vertical-align: top;
   display: inline-block;
