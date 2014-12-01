@@ -9,13 +9,13 @@
 	<name>Allergy UI Module</name>
 	<description>Helps to start writing OpenMRS modules</description>
 	<url>https://wiki.openmrs.org/display/docs/Allergy+UI+Module+Module</url>
-	
+
 	<developers>
 		<developer>
 			<name>OpenMRS Developers</name>
 		</developer>
 	</developers>
-	
+
 	<organization>
 		<name>OpenMRS</name>
 		<url>http://openmrs.org</url>
@@ -32,12 +32,12 @@
 		<module>api</module>
 		<module>omod</module>
 	</modules>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<distro.groupId>org.openmrs.distro</distro.groupId>
 		<distro.artifactId>referenceapplication</distro.artifactId>
-		<distro.version>2.2-SNAPSHOT</distro.version>
+		<distro.version>LATEST</distro.version>
 		<openMRSVersion>1.9.1</openMRSVersion>
         <allergyapiVersion>1.1-SNAPSHOT</allergyapiVersion>
         <uiframeworkVersion>3.3-SNAPSHOT</uiframeworkVersion>
@@ -123,7 +123,7 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	
+
 	<distributionManagement>
         <repository>
             <id>openmrs-repo-modules</id>
