@@ -262,7 +262,7 @@ public class AllergyPageController {
 	private void addModelErrors(PageModel model, Errors errors, HttpSession session, MessageSourceService mss)
 	    throws Exception {
 		model.addAttribute("errors", errors);
-		StringBuffer errorMessage = new StringBuffer(mss.getMessage("error.failed.validation"));
+		StringBuffer errorMessage = new StringBuffer();
 		errorMessage.append("<ul>");
 		for (ObjectError error : errors.getAllErrors()) {
 			errorMessage.append("<li>");
