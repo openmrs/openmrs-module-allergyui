@@ -116,10 +116,13 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
 	        <label class="heading">${ ui.message("allergyui.severity") }:</label>
 	        <% severities.each { severity -> %>
 	            <p>
-                    <input type="radio" id="severity-${severity.id}" class="allergy-severity" name="severity" value="${severity.id}" ${ severity == allergy.severity ? "checked=checked" : "" } ng-checked="severity == ${severity.id}" ng-model="severity" ng-click="toggle(\$event)" ng-keydown="toggle(\$event)"/>
+                    <input type="radio" id="severity-${severity.id}" class="allergy-severity" name="severity" value="${severity.id}" ${ severity == allergy.severity ? "checked=checked" : "" } ng-checked="severity == ${severity.id}" ng-model="severity"/>
                     <label for="severity-${severity.id}">${ui.format(severity)}</label>
                 </p>
 	        <% } %>
+	        <p>
+	        	<a class="undo" title="${ ui.message("general.clear") }" ng-click="severity = null">&otimes;</a>
+	        </p>
 	    </div>
 
 	    <div id="comment">
