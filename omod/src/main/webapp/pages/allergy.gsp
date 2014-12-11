@@ -120,9 +120,7 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
                     <label for="severity-${severity.id}">${ui.format(severity)}</label>
                 </p>
 	        <% } %>
-	        <p>
-	        	<a class="undo" title="${ ui.message("general.clear") }" ng-click="severity = null">&otimes;</a>
-	        </p>
+	        <i class="icon-remove delete-item" title="${ ui.message("general.clear") }" ng-click="severity = null"></i>
 	    </div>
 
 	    <div id="comment">
