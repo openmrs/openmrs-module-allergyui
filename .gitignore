@@ -70,3 +70,7 @@ nb-configuration.xml
 omod/src/main/compass/sass-external/
 *.css
 #############
+
+# Rubygems build directories #
+omod/.rubygems
+omod/.rubygems-provided
