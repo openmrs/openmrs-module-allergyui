@@ -31,34 +31,6 @@
         { label: "${ ui.escapeJs(title) }" }
     ];
     
-    window.messages = window.messages || { };
-    
-    window.messages['ui.i18n.Concept.name.162298AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162298AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162299AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162299AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.71617AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.71617AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162301AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162301AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162302AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162302AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162305AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162305AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162306AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162306AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162297AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162297AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162307AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162307AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162170AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162170AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162545AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162545AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162171AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162171AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162175AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162176AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162176AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162548AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162548AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162536AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162536AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.162541AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.162541AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.120148AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.120148AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.139581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.139581AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.159098AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.159098AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.111061AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.111061AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.117399AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.117399AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.121677AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.121677AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-	window.messages['ui.i18n.Concept.name.1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA']='${ ui.message('ui.i18n.Concept.name.1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA') }';
-
 </script>
 
 ${ ui.includeFragment("coreapps", "patientHeader", [ patient: patient ]) }
