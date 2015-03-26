@@ -86,7 +86,7 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
                             <% if (allergen.id == otherNonCodedConcept.id) { %>
                                 <% if(typeName == 'DRUG') { %>
                                     <input type="hidden" name="otherCodedAllergen" ng-value="otherCodedAllergen.concept ? 'CONCEPT:'+otherCodedAllergen.concept.uuid : 'NON_CODED:'+otherCodedAllergen.word">
-                                    <coded-or-free-text-answer id="${typeName}otherCodedAllergen" concept-classes="8d490dfc-c2cc-11de-8d13-0010c6dffd0f" ng-model="otherCodedAllergen" ng-click="otherFieldFocus()" />
+                                    <coded-or-free-text-answer id="${typeName}otherCodedAllergen" concept-classes="8d490dfc-c2cc-11de-8d13-0010c6dffd0f,b4535251-9183-4175-959e-9ee67dc71e78" ng-model="otherCodedAllergen" ng-click="otherFieldFocus()" />
                                 <% } else {%>
                             	    <input type="text" maxlength="255" id="${typeName}nonCodedAllergen" name="nonCodedAllergen" ng-model="nonCodedAllergen" ng-focus="otherFieldFocus()"/>
                                 <% } %>
