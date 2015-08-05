@@ -27,7 +27,7 @@
     var breadcrumbs = [
         { icon: "icon-home", link: '/' + OPENMRS_CONTEXT_PATH + '/index.htm' },
         { label: "${ ui.format(patient.familyName) }, ${ ui.format(patient.givenName) }" , link: '${ui.pageLink("coreapps", "clinicianfacing/patient", [patientId: patient.id])}'},
-        { label: "${ ui.message("allergyui.allergies") }", link: '${ui.pageLink("allergyui", "allergies", [patientId: patient.id])}'},
+        { label: "${ ui.message("allergyui.allergies") }", link: '${ui.pageLink("allergyui", "allergies", [patientId: patient.id, returnUrl: returnUrl])}'},
         { label: "${ ui.escapeJs(title) }" }
     ];
     
@@ -49,7 +49,7 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
         </button>
     <% } %>
 
-	<form method="post" id="allergy" action="${ ui.pageLink("allergyui", "allergy", [patientId: patient.id]) }">
+	<form method="post" id="allergy" action="${ ui.pageLink("allergyui", "allergy", [patientId: patient.id, returnUrl: returnUrl]) }">
 
         <input type="hidden" name="allergenType" value="{{allergenType}}"/>
         <% if (isEdit) { %>
@@ -132,7 +132,7 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
 	    <div id="actions">
 	        <input type="submit" id="addAllergyBtn" class="confirm right" value="${ ui.message("coreapps.save") }" <% if(!isEdit){ %> ng-disabled="!canSave()" <% } %>/>
 	        <input type="button" class="cancel" value="${ ui.message("coreapps.cancel") }"
-	         onclick="location.href='${ ui.pageLink("allergyui", "allergies", [patientId: patient.id]) }'" />
+	         onclick="location.href='${ ui.pageLink("allergyui", "allergies", [patientId: patient.id, returnUrl: returnUrl ]) }'" />
 	    </div>
 	</form>
 </div>

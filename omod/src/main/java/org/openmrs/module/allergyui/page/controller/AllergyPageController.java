@@ -13,14 +13,6 @@
  */
 package org.openmrs.module.allergyui.page.controller;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.openmrs.Concept;
 import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
@@ -47,10 +39,18 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 public class AllergyPageController {
 	
 	public void controller(PageModel model, @RequestParam(value = "allergyId", required = false) Integer allergyId,
-	                       @RequestParam("patientId") Patient patient, UiUtils ui,
+	                       @RequestParam("patientId") Patient patient,
+                           @RequestParam(value = "returnUrl", required = false) String returnUrl, UiUtils ui,
 	                       @SpringBean("allergyService") PatientService patientService,
 	                       @SpringBean("allergyProperties") AllergyProperties properties) {
 		
@@ -61,10 +61,11 @@ public class AllergyPageController {
 			allergy = patientService.getAllergies(patient).getAllergy(allergyId);
 		}
 		
-		setModelAttributes(allergy, model, properties, ui);
+		setModelAttributes(allergy, returnUrl, model, properties, ui);
 	}
 	
 	public String post(@MethodParam("getAllergy") @BindParams Allergy allergy, @RequestParam("patientId") Patient patient,
+                       @RequestParam(value = "returnUrl", required = false) String returnUrl,
 	                   PageModel model, @SpringBean("allergyService") PatientService patientService,
 	                   @SpringBean("allergyProperties") AllergyProperties properties,
 	                   @SpringBean("messageSourceService") MessageSourceService messageService,
@@ -95,14 +96,14 @@ public class AllergyPageController {
 				patientService.setAllergies(patient, allergies);
 				InfoErrorMessageUtil.flashInfoMessage(session, successMsgCode);
 				
-				return "redirect:allergyui/allergies.page?patientId=" + patient.getPatientId();
+				return "redirect:allergyui/allergies.page?patientId=" + patient.getPatientId() + "&returnUrl=" + ui.urlEncode(returnUrl);
 			}
 			catch (Exception e) {
 				session.setAttribute(UiCommonsConstants.SESSION_ATTRIBUTE_ERROR_MESSAGE, "allergyui.message.fail");
 			}
 		}
 		
-		setModelAttributes(allergy, model, properties, ui);
+		setModelAttributes(allergy, returnUrl, model, properties, ui);
 		
 		return null;
 	}
@@ -162,11 +163,12 @@ public class AllergyPageController {
 		return allergy;
 	}
 	
-	private void setModelAttributes(Allergy allergy, PageModel model, AllergyProperties properties, UiUtils ui) {
+	private void setModelAttributes(Allergy allergy, String returnUrl, PageModel model, AllergyProperties properties, UiUtils ui) {
 		
 		Concept unknownConcept = properties.getUnknownConcept();
 		
 		model.addAttribute("allergy", allergy);
+        model.addAttribute("returnUrl", returnUrl);
 		model.addAttribute("allergenTypes", AllergenType.values());
 		model.addAttribute("unknownConcept", unknownConcept);
 		

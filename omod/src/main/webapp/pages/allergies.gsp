@@ -57,29 +57,29 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
         
         <% allergies.each { allergy -> %>
             <tr>
-                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id]) }'" <% } %> > 
+                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
                 	<% if (!allergy.allergen.coded) { %>"<% } %>${ ui.format(allergy.allergen.coded ? allergy.allergen.codedAllergen : allergy.allergen) }<% if (!allergy.allergen.coded) { %>"<% } %> 
                 </td>
                 
-                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id]) }'" <% } %> > 
+                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
                 	<% allergy.reactions.eachWithIndex { reaction, index -> %><% if (index > 0) { %>,<% } %> ${ui.format(reaction.reactionNonCoded ? reaction : reaction.reaction)}<% } %>
                 </td>
                 
-                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id]) }'" <% } %> > 
+                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
                 	<% if (allergy.severity) { %> ${ ui.format(allergy.severity.name) } <% } %> 
                 </td>
                 
-                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id]) }'" <% } %> > 
+                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
                 	${ allergy.comment } 
                 </td>
-                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id]) }'" <% } %> > 
+                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
                 	${ ui.formatDatetimePretty(allergy.dateLastUpdated) } 
                 </td>
                 
                 <% if (hasModifyAllergiesPrivilege) { %>
 	                <td>
 	                	<i class="icon-pencil edit-action" title="${ ui.message("coreapps.edit") }"
-	                       onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id]) }'"></i>
+	                       onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'"></i>
 	                    <i class="icon-remove delete-action" title="${ ui.message("coreapps.delete") }" onclick="removeAllergy('${ allergy.allergen }', ${ allergy.id})"></i>
 	                </td>
                 <% } %>
@@ -91,12 +91,16 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
 <br/>
 
 <% if (hasModifyAllergiesPrivilege) { %>
-	<button class="confirm" onclick="location.href='${ ui.pageLink("allergyui", "allergy", [patientId: patient.id]) }'">
+    <button class="cancel" onclick="location.href='${ ui.escapeJs(returnUrl) }'">
+        ${ ui.message("uicommons.cancel") }
+    </button>
+	<button class="confirm right" onclick="location.href='${ ui.pageLink("allergyui", "allergy", [patientId: patient.id, returnUrl: returnUrl]) }'">
 	    ${ ui.message("allergyui.addNewAllergy") }
 	</button>
 	
 	<form method="POST">
 	    <input type="hidden" name="patientId" value="${patient.id}"/>
+        <input type="hidden" name="returnUrl" value="${returnUrl}"/>
 	    <input type="hidden" name="action" value="confirmNoKnownAllergies"/>
 		<button type="submit" class="confirm right" style="<% if (allergies.allergyStatus != "Unknown") { %> display:none; <% } %>">
 		    ${ ui.message("allergyui.noKnownAllergy") }

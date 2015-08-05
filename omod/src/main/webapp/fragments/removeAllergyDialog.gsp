@@ -10,6 +10,7 @@
         </ul>
         <form method="POST" action="allergies.page">
             <input type="hidden" name="patientId" value="${patient.id}"/>
+            <input type="hidden" name="returnUrl" value="${returnUrl}"/>
             <input type="hidden" id="allergyId" name="allergyId" value=""/>
             <input type="hidden" name="action" value="removeAllergy"/>
             <button class="confirm right" type="submit">${ ui.message("general.yes") }</button>
