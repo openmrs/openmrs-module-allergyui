@@ -92,7 +92,7 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
 
 <% if (hasModifyAllergiesPrivilege) { %>
     <button class="cancel" onclick="location.href='${ ui.escapeJs(returnUrl) }'">
-        ${ ui.message("uicommons.cancel") }
+        ${ ui.message("uicommons.return") }
     </button>
 	<button class="confirm right" onclick="location.href='${ ui.pageLink("allergyui", "allergy", [patientId: patient.id, returnUrl: returnUrl]) }'">
 	    ${ ui.message("allergyui.addNewAllergy") }
