@@ -15,7 +15,7 @@ package org.openmrs.module.allergyui.extension.html;
 
 import java.util.Comparator;
 
-import org.openmrs.module.allergyapi.Allergy;
+import org.openmrs.allergyapi.Allergy;
 
 /**
  * Sorts allergies

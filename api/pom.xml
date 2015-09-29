@@ -63,12 +63,6 @@
 		</dependency>
 				
 		<!-- End OpenMRS core -->
-
-        <dependency>
-            <groupId>org.openmrs.module</groupId>
-            <artifactId>allergyapi-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
 		
 	</dependencies>
 	
