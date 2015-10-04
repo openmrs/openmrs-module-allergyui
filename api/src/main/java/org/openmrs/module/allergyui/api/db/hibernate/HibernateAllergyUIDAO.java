@@ -15,7 +15,7 @@ package org.openmrs.module.allergyui.api.db.hibernate;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.hibernate.SessionFactory;
+import org.openmrs.api.db.hibernate.DbSessionFactory;  
 import org.openmrs.module.allergyui.api.db.AllergyUIDAO;
 
 /**
@@ -24,19 +24,19 @@ import org.openmrs.module.allergyui.api.db.AllergyUIDAO;
 public class HibernateAllergyUIDAO implements AllergyUIDAO {
 	protected final Log log = LogFactory.getLog(this.getClass());
 	
-	private SessionFactory sessionFactory;
+	private DbSessionFactory sessionFactory;
 	
 	/**
      * @param sessionFactory the sessionFactory to set
      */
-    public void setSessionFactory(SessionFactory sessionFactory) {
+    public void setSessionFactory(DbSessionFactory sessionFactory) {
 	    this.sessionFactory = sessionFactory;
     }
     
 	/**
      * @return the sessionFactory
      */
-    public SessionFactory getSessionFactory() {
+    public DbSessionFactory getSessionFactory() {
 	    return sessionFactory;
     }
 }
