@@ -38,7 +38,7 @@
 		<distro.groupId>org.openmrs.distro</distro.groupId>
 		<distro.artifactId>referenceapplication</distro.artifactId>
 		<distro.version>LATEST</distro.version>
-		<openMRSVersion>1.10.2</openMRSVersion>
+		<openMRSVersion>1.9.9</openMRSVersion>
         <allergyapiVersion>1.1</allergyapiVersion>
         <uiframeworkVersion>3.3.1</uiframeworkVersion>
 	</properties>
