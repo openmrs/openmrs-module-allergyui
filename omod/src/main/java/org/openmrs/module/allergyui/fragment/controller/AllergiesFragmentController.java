@@ -17,8 +17,8 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import org.openmrs.Patient;
-import org.openmrs.module.allergyapi.Allergies;
-import org.openmrs.module.allergyapi.api.PatientService;
+import org.openmrs.Allergies;
+import org.openmrs.api.PatientService;
 import org.openmrs.module.allergyui.extension.html.AllergyComparator;
 import org.openmrs.ui.framework.UiUtils;
 import org.openmrs.ui.framework.annotation.FragmentParam;
