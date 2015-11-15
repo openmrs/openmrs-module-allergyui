@@ -27,6 +27,16 @@
 			<artifactId>library-name</artifactId> 
 		</dependency> 
 		-->
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>${project.parent.artifactId}-omod-1.0</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>${project.parent.artifactId}-omod-2.0</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
 		
 		<!-- Begin OpenMRS modules -->
 		
@@ -37,11 +47,6 @@
 			<scope>compile</scope>
 		</dependency>
 		
-		<dependency>
-			<groupId>org.openmrs.module</groupId>
-			<artifactId>legacyui-omod</artifactId>
-			<type>jar</type>
-		</dependency>		
 				
 		<!-- End OpenMRS modules -->
 		
@@ -84,6 +89,11 @@
             <groupId>org.openmrs.module</groupId>
             <artifactId>uiframework-api</artifactId>
             <version>${uiframeworkVersion}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>allergyapi-api</artifactId>
         </dependency>
 
 		<dependency>

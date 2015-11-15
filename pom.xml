@@ -28,10 +28,13 @@
 	  <tag>HEAD</tag>
   </scm>
 
+    <!-- modules are now configured in profile section so we can provide a no-java-8 profile (see profiles section below) -->
+    <!-- 
 	<modules>
 		<module>api</module>
 		<module>omod</module>
 	</modules>
+     -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -39,8 +42,10 @@
 		<distro.artifactId>referenceapplication</distro.artifactId>
 		<distro.version>LATEST</distro.version>
 		<openMRSVersion>2.0.0-SNAPSHOT</openMRSVersion>
+        <allergyapiVersion>1.3</allergyapiVersion>
         <uiframeworkVersion>3.5-SNAPSHOT</uiframeworkVersion>
 		<legacyuiVersion>1.0-SNAPSHOT</legacyuiVersion>
+		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencyManagement>
@@ -55,7 +60,7 @@
 			</dependency>
 			
 			<!-- Begin OpenMRS modules --> 
-			
+<!-- 
 			<dependency>
 				<groupId>org.openmrs.module</groupId>
 				<artifactId>legacyui-omod</artifactId>
@@ -63,6 +68,7 @@
 				<type>jar</type>
 				<scope>provided</scope>
 			</dependency>
+ -->			
 						
 			<!-- End OpenMRS modules -->
 			
@@ -87,8 +93,8 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<configuration>
-						<target>1.8</target>
-						<source>1.8</source>
+						<target>${java.version}</target>
+						<source>${java.version}</source>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -118,6 +124,87 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+
+	<profiles>
+
+        <!-- if you update this default profile, be sure to update the "release" profile to make sure it stays consistent -->
+        <profile>
+            <id>java-8</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <modules>
+                <module>api</module>
+                <module>omod-1.0</module>
+                <module>omod-2.0</module>
+                <module>omod</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>no-java-8</id>
+
+            <modules>
+                <module>omod-1.0</module>
+                <module>omod</module>
+            </modules>
+        </profile>
+
+
+		<profile>
+			<id>release</id>
+
+            <modules>
+                <module>api</module>
+                <module>omod-1.0</module>
+                <module>omod-2.0</module>
+                <module>omod</module>
+            </modules>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>2.1.2</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.8.1</version>
+						<configuration>
+							<tags>
+								<tag>
+									<name>should</name>
+									<placement>a</placement>
+									<head>Should:</head>
+								</tag>
+							</tags>
+						</configuration>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
 
 	<repositories>
 		<repository>
