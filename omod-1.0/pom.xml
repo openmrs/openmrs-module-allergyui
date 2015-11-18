@@ -17,6 +17,7 @@
         <gem.home>${basedir}/.rubygems</gem.home>
         <gem.path>${basedir}/.rubygems</gem.path>
 		<openmrs.version.1.0>1.11.3</openmrs.version.1.0>
+		<distro.version.1.0>LATEST</distro.version.1.0>
 	</properties>
 
 	<dependencies>
@@ -28,6 +29,16 @@
 			<artifactId>library-name</artifactId> 
 		</dependency> 
 		-->
+		
+	        <!-- Importing versions from refapp distro -->
+			<dependency>
+				<groupId>${distro.groupId}</groupId>
+				<artifactId>${distro.artifactId}</artifactId>
+				<version>${distro.version.1.0}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		
 		
 		<!-- Begin OpenMRS modules -->
 		
