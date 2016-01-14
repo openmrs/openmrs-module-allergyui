@@ -19,6 +19,9 @@
 		<require_module version="${uiframeworkVersion}">
 			org.openmrs.module.uiframework
 		</require_module>
+		<require_module version="${allergyapiVersion}">
+			org.openmrs.module.allergyapi
+		</require_module>
         <require_module version="${uicommonsVersion}">
             org.openmrs.module.uicommons
         </require_module>
@@ -26,7 +29,6 @@
 	
 	<aware_of_modules>
 	    <aware_of_module>org.openmrs.module.legacyui</aware_of_module>
-	    <aware_of_module>org.openmrs.module.allergyapi</aware_of_module>
 	</aware_of_modules>
 
 	<!-- Module Activator -->
@@ -60,6 +62,18 @@
 		<lang>es</lang>
 		<file>messages_es.properties</file>
 	</messages>
+	<messages>
+		<lang>ht</lang>
+		<file>messages_ht.properties</file>
+	</messages>
+    <messages>
+        <lang>pt</lang>
+        <file>messages_pt.properties</file>
+    </messages>
+    <messages>
+        <lang>de</lang>
+        <file>messages_de.properties</file>
+    </messages>
 	<!-- /Internationalization -->
 
 </module>
