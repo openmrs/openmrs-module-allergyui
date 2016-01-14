@@ -34,7 +34,19 @@
 	<!-- Module Activator -->
 	<activator>${project.parent.groupId}.${project.parent.artifactId}.AllergyUIActivator</activator>
 	
-	
+	<!-- Conditional Resources -->
+    <conditionalResources>
+    	<conditionalResource>
+            <path>/lib/allergyui-web-1.9-${project.parent.version}.jar</path>
+            <openmrsVersion>1.9.9 - 1.12.*</openmrsVersion>
+        </conditionalResource>
+        <conditionalResource>
+            <path>/lib/allergyui-web-2.0-${project.parent.version}.jar</path>
+            <openmrsVersion>2.0.*</openmrsVersion>
+        </conditionalResource>
+    </conditionalResources>
+    <!-- / Conditional Resources -->
+    
 	<!-- Adds link to admin page -->
 	<extension>
 		<point>org.openmrs.admin.list</point>
