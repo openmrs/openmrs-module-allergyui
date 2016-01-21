@@ -28,34 +28,6 @@
 
 	<bean class="org.openmrs.ui.framework.StandardModuleUiConfiguration">
 		<property name="moduleId" value="${project.parent.artifactId}"/>
-		<property name="fragmentDirectoryMap">
-			<props>
-	           <prop key="omod">1.9.9 - 2.0.*</prop>
-	           <prop key="web-1.9">1.9.9 - 1.12.*</prop>
-	           <prop key="web-2.0">2.0.*</prop>
-	        </props>
-	    </property>
-	    <property name="pageDirectoryMap">
-			<props>
-	           <prop key="omod">1.9.9 - 2.0.*</prop>
-	           <prop key="web-1.9">1.9.9 - 1.12.*</prop>
-	           <prop key="web-2.0">2.0.*</prop>
-	        </props>
-	    </property>
-	    <property name="resourceDirectoryMap">
-			<props>
-	           <prop key="omod">1.9.9 - 2.0.*</prop>
-	           <prop key="web-1.9">1.9.9 - 1.12.*</prop>
-	           <prop key="web-2.0">2.0.*</prop>
-	        </props>
-	    </property>
-	    <property name="classDirectoryMap">
-			<props>
-	           <prop key="omod">1.9.9 - 2.0.*</prop>
-	           <prop key="web-1.9">1.9.9 - 1.12.*</prop>
-	           <prop key="web-2.0">2.0.*</prop>
-	        </props>
-	    </property>
 	</bean>
 	
 	<context:component-scan base-package="org.openmrs.module.allergyui.web.controller" />
