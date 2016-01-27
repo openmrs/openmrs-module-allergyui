@@ -42,7 +42,11 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
             <tr>
                 <td colspan="6" align="center" class="allergyStatus">
                 <% if (allergies.allergyStatus != "No known allergies") { %>
-                    ${ allergies.allergyStatus }
+                    <% if (allergies.allergyStatus == "Unknown") { %>
+                        ${ ui.message("allergyui.unknown") }
+                    <% } else { %>
+                        ${ ui.message(allergies.allergyStatus) }
+                    <% } %>
                 <% } else { %>
                     <form name="deactivateForm" method="POST">
                         ${ ui.message("allergyui.noKnownAllergies") }
@@ -97,8 +101,8 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
 	<button class="confirm right" onclick="location.href='${ ui.pageLink("allergyui", "allergy", [patientId: patient.id, returnUrl: returnUrl]) }'">
 	    ${ ui.message("allergyui.addNewAllergy") }
 	</button>
-	
-	<form method="POST">
+
+	<form method="POST" action="${ ui.pageLink("allergyui", "allergies") }">
 	    <input type="hidden" name="patientId" value="${patient.id}"/>
         <input type="hidden" name="returnUrl" value="${returnUrl}"/>
 	    <input type="hidden" name="action" value="confirmNoKnownAllergies"/>

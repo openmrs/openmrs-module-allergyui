@@ -10,7 +10,13 @@
     </div>
     <div class="info-body">
         <% if (allergies.allergyStatus != "See list") { %>
-			 ${ ui.message(allergies.allergyStatus) }
+            <% if (allergies.allergyStatus == "Unknown") { %>
+                ${ ui.message("allergyui.unknown") }
+            <% } else if (allergies.allergyStatus == "No known allergies") { %>
+                ${ ui.message("allergyui.noKnownAllergies") }
+            <% } else { %>
+			    ${ ui.message(allergies.allergyStatus) }
+            <% } %>
 		<% } else { %>
         <ul>
             <% allergies.each { allergy -> %>
