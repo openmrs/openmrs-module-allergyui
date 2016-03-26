@@ -240,7 +240,7 @@ public class AllergyPageController {
 		//Unknown should come first
 		if (concept != null) {
 			for (Concept c : concept.getSetMembers()) {
-				if (Allergen.OTHER_NON_CODED_UUID.equals(c.getUuid())) {
+				if (Allergen.getOtherNonCodedConceptUuid().equals(c.getUuid())) {
 					otherConcept = c;
 					continue;
 				} else if (unknownConceptUuid.equals(c.getUuid())) {
