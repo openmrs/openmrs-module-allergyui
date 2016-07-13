@@ -39,7 +39,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<distro.groupId>org.openmrs.distro</distro.groupId>
 		<distro.artifactId>referenceapplication</distro.artifactId>
-		<distro.version>2.4-SNAPSHOT</distro.version>
+		<distro.version>2.5-SNAPSHOT</distro.version>
 		<openMRSVersion>1.9.9</openMRSVersion>
         <allergyapiVersion>1.1</allergyapiVersion>
         <uiframeworkVersion>3.3.1</uiframeworkVersion>
