@@ -7,7 +7,7 @@
 	<version>1.6-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Allergy UI Module</name>
-	<description>Helps to start writing OpenMRS modules</description>
+	<description>Provides user interface for managing patient allergies</description>
 	<url>https://wiki.openmrs.org/display/docs/Allergy+UI+Module+Module</url>
 
 	<developers>
