@@ -6,7 +6,7 @@
 <script type="text/javascript">
     var breadcrumbs = [
         { icon: "icon-home", link: '/' + OPENMRS_CONTEXT_PATH + '/index.htm' },
-        { label: "${ ui.format(patient.familyName) }, ${ ui.format(patient.givenName) }" , link: '${ui.pageLink("coreapps", "clinicianfacing/patient", [patientId: patient.id])}'},
+        { label: "${ ui.escapeJs(ui.encodeHtmlContent(ui.format(patient.familyName))) }, ${ ui.escapeJs(ui.encodeHtmlContent(ui.format(patient.givenName))) }" , link: '${ui.pageLink("coreapps", "clinicianfacing/patient", [patientId: patient.id])}'},
         { label: "${ ui.message("allergyui.allergies") }" }
     ];
 </script>
@@ -62,19 +62,19 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
         <% allergies.each { allergy -> %>
             <tr>
                 <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
-                	<% if (!allergy.allergen.coded) { %>"<% } %>${ ui.format(allergy.allergen.coded ? allergy.allergen.codedAllergen : allergy.allergen) }<% if (!allergy.allergen.coded) { %>"<% } %> 
+                	<% if (!allergy.allergen.coded) { %>"<% } %>${ ui.escapeJs(ui.encodeHtmlContent(ui.format(allergy.allergen.coded ? allergy.allergen.codedAllergen : allergy.allergen))) }<% if (!allergy.allergen.coded) { %>"<% } %> 
                 </td>
                 
                 <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
-                	<% allergy.reactions.eachWithIndex { reaction, index -> %><% if (index > 0) { %>,<% } %> ${ui.format(reaction.reactionNonCoded ? reaction : reaction.reaction)}<% } %>
+                	<% allergy.reactions.eachWithIndex { reaction, index -> %><% if (index > 0) { %>,<% } %> ${ui.escapeJs(ui.encodeHtmlContent(ui.format(reaction.reactionNonCoded ? reaction : reaction.reaction)))}<% } %>
                 </td>
                 
                 <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
-                	<% if (allergy.severity) { %> ${ ui.format(allergy.severity.name) } <% } %> 
+                	<% if (allergy.severity) { %> ${ ui.escapeJs(ui.encodeHtmlContent(ui.format(allergy.severity.name))) } <% } %> 
                 </td>
                 
                 <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
-                	${ allergy.comment } 
+                	${ ui.escapeJs(ui.encodeHtmlContent(allergy.comment)) } 
                 </td>
                 <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
                 	${ ui.formatDatetimePretty(allergy.dateLastUpdated) } 
@@ -84,7 +84,7 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
 	                <td>
 	                	<i class="icon-pencil edit-action" title="${ ui.message("coreapps.edit") }"
 	                       onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'"></i>
-	                    <i class="icon-remove delete-action" title="${ ui.message("coreapps.delete") }" onclick="removeAllergy('${ ui.escapeJs(ui.format(allergy.allergen)) }', ${ allergy.id})"></i>
+	                    <i class="icon-remove delete-action" title="${ ui.message("coreapps.delete") }" onclick="removeAllergy('${ ui.escapeJs(ui.encodeHtmlContent(ui.format(allergy.allergen))) }', ${ allergy.id})"></i>
 	                </td>
                 <% } %>
             </tr>

@@ -14,7 +14,7 @@
     ui.includeCss("allergyui", "allergy.css")
     def isEdit = allergy.id != null;
     def title = isEdit ?
-            ui.message("allergyui.editAllergy", ui.format(allergy.allergen.coded ? allergy.allergen.codedAllergen : allergy.allergen)) :
+            ui.message("allergyui.editAllergy", ui.escapeJs(ui.encodeHtmlContent(ui.format(allergy.allergen.coded ? allergy.allergen.codedAllergen : allergy.allergen)))) :
             ui.message("allergyui.addNewAllergy");
 
     def allergensByType = [
@@ -26,9 +26,9 @@
 <script type="text/javascript">
     var breadcrumbs = [
         { icon: "icon-home", link: '/' + OPENMRS_CONTEXT_PATH + '/index.htm' },
-        { label: "${ ui.format(patient.familyName) }, ${ ui.format(patient.givenName) }" , link: '${ui.pageLink("coreapps", "clinicianfacing/patient", [patientId: patient.id])}'},
+        { label: "${ ui.escapeJs(ui.encodeHtmlContent(ui.format(patient.familyName))) }, ${ ui.escapeJs(ui.encodeHtmlContent(ui.format(patient.givenName))) }" , link: '${ui.pageLink("coreapps", "clinicianfacing/patient", [patientId: patient.id])}'},
         { label: "${ ui.message("allergyui.allergies") }", link: '${ui.pageLink("allergyui", "allergies", [patientId: patient.id, returnUrl: returnUrl])}'},
-        { label: "${ ui.escapeJs(title) }" }
+        { label: "${ title }" }
     ];
     
 </script>
@@ -44,7 +44,7 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
     <h2 class="inline">${ title }</h2>
 
     <% if (isEdit) { %>
-        <button type="button" class="cancel inline right" onclick="removeAllergy('${ ui.escapeJs(ui.format(allergy.allergen)) }', ${ allergy.id})">
+        <button type="button" class="cancel inline right" onclick="removeAllergy('${ ui.escapeJs(ui.encodeHtmlContent(ui.format(allergy.allergen))) }', ${ allergy.id})">
              ${ ui.message("allergyui.removeAllergy") }
         </button>
     <% } %>

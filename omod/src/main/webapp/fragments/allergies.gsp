@@ -21,9 +21,9 @@
         <ul>
             <% allergies.each { allergy -> %>
 	            <li>
-	            	<span class="allergen">  <% if (!allergy.allergen.coded) { %>"<% } %>${ ui.format(allergy.allergen.coded ? allergy.allergen.codedAllergen : allergy.allergen) }<% if (!allergy.allergen.coded) { %>"<% } %>  </span>
+	            	<span class="allergen">  <% if (!allergy.allergen.coded) { %>"<% } %>${ ui.encodeHtmlContent(ui.format(allergy.allergen.coded ? allergy.allergen.codedAllergen : allergy.allergen)) }<% if (!allergy.allergen.coded) { %>"<% } %>  </span>
 	            	<% allergy.reactions.eachWithIndex { reaction, index -> %>
-	            		<span class="allergyReaction"><% if (index > 0) { %>,<% } else { %> &rArr; <% } %> ${ui.format(reaction.reactionNonCoded ? reaction : reaction.reaction)}</span>
+	            		<span class="allergyReaction"><% if (index > 0) { %>,<% } else { %> &rArr; <% } %> ${ui.encodeHtmlContent(ui.format(reaction.reactionNonCoded ? reaction : reaction.reaction))}</span>
 	            	<% } %>
 	            </li>
             <% } %>
