@@ -44,7 +44,7 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
     <h2 class="inline">${ title }</h2>
 
     <% if (isEdit) { %>
-        <button type="button" class="cancel inline right" onclick="removeAllergy('${ ui.escapeJs(ui.encodeHtmlContent(ui.format(allergy.allergen))) }', ${ allergy.id})">
+        <button type="button" class="cancel inline right" onclick="removeAllergy('${ ui.encodeHtmlContent(ui.format(allergy.allergen)) }', ${ allergy.id})">
              ${ ui.message("allergyui.removeAllergy") }
         </button>
     <% } %>

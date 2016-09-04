@@ -62,19 +62,19 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
         <% allergies.each { allergy -> %>
             <tr>
                 <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
-                	<% if (!allergy.allergen.coded) { %>"<% } %>${ ui.escapeJs(ui.encodeHtmlContent(ui.format(allergy.allergen.coded ? allergy.allergen.codedAllergen : allergy.allergen))) }<% if (!allergy.allergen.coded) { %>"<% } %> 
+                	<% if (!allergy.allergen.coded) { %>"<% } %>${ ui.encodeHtmlContent(ui.format(allergy.allergen.coded ? allergy.allergen.codedAllergen : allergy.allergen)) }<% if (!allergy.allergen.coded) { %>"<% } %> 
                 </td>
                 
                 <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
-                	<% allergy.reactions.eachWithIndex { reaction, index -> %><% if (index > 0) { %>,<% } %> ${ui.escapeJs(ui.encodeHtmlContent(ui.format(reaction.reactionNonCoded ? reaction : reaction.reaction)))}<% } %>
+                	<% allergy.reactions.eachWithIndex { reaction, index -> %><% if (index > 0) { %>,<% } %> ${ui.encodeHtmlContent(ui.format(reaction.reactionNonCoded ? reaction : reaction.reaction))}<% } %>
                 </td>
                 
                 <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
-                	<% if (allergy.severity) { %> ${ ui.escapeJs(ui.encodeHtmlContent(ui.format(allergy.severity.name))) } <% } %> 
+                	<% if (allergy.severity) { %> ${ ui.encodeHtmlContent(ui.format(allergy.severity.name)) } <% } %> 
                 </td>
                 
                 <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
-                	${ ui.escapeJs(ui.encodeHtmlContent(allergy.comment)) } 
+                	${ ui.encodeHtmlContent(allergy.comment) } 
                 </td>
                 <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
                 	${ ui.formatDatetimePretty(allergy.dateLastUpdated) } 
