@@ -19,6 +19,6 @@ function showRemoveAllergyDialog() {
 
 function removeAllergy(allergy, id) {
     jq("#allergyId").val(id);
-    jq("#removeAllergyMessage").text(jq("#removeAllergyMessage").text().replace("{0}", allergy));
+    jq("#removeAllergyMessage").text(jq("#removeAllergyMessageTemplate").val().replace("{0}", allergy));
     showRemoveAllergyDialog(allergy, id);
 }
