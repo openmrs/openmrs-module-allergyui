@@ -61,11 +61,11 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
         
         <% allergies.each { allergy -> %>
             <tr>
-                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
+                <td class="allergen" <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
                 	<% if (!allergy.allergen.coded) { %>"<% } %>${ ui.encodeHtmlContent(ui.format(allergy.allergen.coded ? allergy.allergen.codedAllergen : allergy.allergen)) }<% if (!allergy.allergen.coded) { %>"<% } %> 
                 </td>
                 
-                <td <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
+                <td class="reaction" <% if (hasModifyAllergiesPrivilege) { %> onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'" <% } %> >
                 	<% allergy.reactions.eachWithIndex { reaction, index -> %><% if (index > 0) { %>,<% } %> ${ui.encodeHtmlContent(ui.format(reaction.reactionNonCoded ? reaction : reaction.reaction))}<% } %>
                 </td>
                 
