@@ -98,7 +98,7 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
     <button class="cancel" onclick="location.href='${ ui.escapeJs(returnUrl) }'">
         ${ ui.message("uicommons.return") }
     </button>
-	<button class="confirm right" onclick="location.href='${ ui.pageLink("allergyui", "allergy", [patientId: patient.id, returnUrl: returnUrl]) }'">
+	<button id ="allergyui-addNewAllergy" class="confirm right" onclick="location.href='${ ui.pageLink("allergyui", "allergy", [patientId: patient.id, returnUrl: returnUrl]) }'">
 	    ${ ui.message("allergyui.addNewAllergy") }
 	</button>
 
