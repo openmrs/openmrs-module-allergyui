@@ -84,7 +84,7 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
 	                <td>
 	                	<i class="icon-pencil edit-action" title="${ ui.message("coreapps.edit") }"
 	                       onclick="location.href='${ ui.pageLink("allergyui", "allergy", [allergyId:allergy.id, patientId: patient.id, returnUrl: returnUrl]) }'"></i>
-	                    <i class="icon-remove delete-action" title="${ ui.message("coreapps.delete") }" onclick="removeAllergy('${ ui.escapeJs(ui.encodeHtmlContent(ui.format(allergy.allergen))) }', ${ allergy.id})"></i>
+	                    <i class="icon-remove delete-action" title="${ ui.message("coreapps.delete") }" onclick="removeAllergy('${ ui.encodeJavaScriptAttribute(ui.format(allergy.allergen)) }', ${ allergy.id})"></i>
 	                </td>
                 <% } %>
             </tr>
