@@ -28,6 +28,24 @@
 
 	<bean class="org.openmrs.ui.framework.StandardModuleUiConfiguration">
 		<property name="moduleId" value="${project.parent.artifactId}"/>
+		<property name="openmrsVersion" value="1.*" />
+		<property name="developmentFolders">
+		  <list>
+		    <value>web-1.9</value>
+		    <value>omod</value>
+		  </list>
+		</property>
+	</bean>
+	
+	<bean class="org.openmrs.ui.framework.StandardModuleUiConfiguration">
+		<property name="moduleId" value="${project.parent.artifactId}"/>
+		<property name="openmrsVersion" value="2.*" />
+		<property name="developmentFolders">
+		  <list>
+		    <value>web-2.0</value>
+		    <value>omod</value>
+		  </list>
+		</property>
 	</bean>
 	
 	<context:component-scan base-package="org.openmrs.module.allergyui.web.controller" />
