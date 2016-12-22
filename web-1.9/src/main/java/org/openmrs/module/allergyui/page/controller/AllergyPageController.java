@@ -39,12 +39,12 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 public class AllergyPageController {
 	
@@ -71,12 +71,13 @@ public class AllergyPageController {
 	                   @SpringBean("messageSourceService") MessageSourceService messageService,
 	                   @SpringBean("allergyValidator") AllergyValidator validator, HttpSession session, UiUtils ui)
 	    throws Exception {
-		
+
+
 		Errors errors = new BeanPropertyBindingResult(allergy, "allergy");
 		validator.validate(allergy, errors);
 		
 		if (errors.hasErrors()) {
-			addModelErrors(model, errors, session, messageService);
+			addModelErrors(model, errors, session, messageService, ui);
 		} else {
 			Allergies allergies = patientService.getAllergies(patient);
 			String successMsgCode = "allergyui.message.success";
@@ -261,14 +262,14 @@ public class AllergyPageController {
 		return setMembers;
 	}
 	
-	private void addModelErrors(PageModel model, Errors errors, HttpSession session, MessageSourceService mss)
+	private void addModelErrors(PageModel model, Errors errors, HttpSession session, MessageSourceService mss, UiUtils ui)
 	    throws Exception {
 		model.addAttribute("errors", errors);
 		StringBuffer errorMessage = new StringBuffer();
 		errorMessage.append("<ul>");
 		for (ObjectError error : errors.getAllErrors()) {
 			errorMessage.append("<li>");
-			errorMessage.append(mss.getMessage(error.getCode(), error.getArguments(), error.getDefaultMessage(), null));
+			errorMessage.append(mss.getMessage(error.getCode(), error.getArguments(), ui.getLocale()));
 			errorMessage.append("</li>");
 		}
 		errorMessage.append("</ul>");
