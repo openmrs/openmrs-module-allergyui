@@ -7,6 +7,8 @@ import org.openmrs.module.allergyapi.Allergies;
 import org.openmrs.module.allergyapi.AllergyConstants;
 import org.openmrs.module.allergyapi.api.PatientService;
 import org.openmrs.module.allergyui.extension.html.AllergyComparator;
+import org.openmrs.module.appframework.domain.Extension;
+import org.openmrs.module.appframework.service.AppFrameworkService;
 import org.openmrs.module.uicommons.UiCommonsConstants;
 import org.openmrs.module.uicommons.util.InfoErrorMessageUtil;
 import org.openmrs.ui.framework.UiUtils;
@@ -15,15 +17,19 @@ import org.openmrs.ui.framework.page.PageModel;
 import org.openmrs.ui.util.ByFormattedObjectComparator;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.Comparator;
-import javax.servlet.http.HttpSession;
+import java.util.List;
+
+import static org.openmrs.module.allergyui.AllergyUIConstants.ALLERGIES_PAGE_INCLUDE_FRAGMENT_EXTENSION_POINT;
 
 public class AllergiesPageController {
 	
 	public void controller(@RequestParam("patientId") Patient patient,
                            @RequestParam(value = "returnUrl", required = false) String returnUrl,
                            PageModel model, UiUtils ui,
+						   @SpringBean("appFrameworkService") AppFrameworkService appFrameworkService,
 	                       @SpringBean("allergyService") PatientService patientService) {
 		
 		Allergies allergies = patientService.getAllergies(patient);
@@ -33,6 +39,10 @@ public class AllergiesPageController {
         if (StringUtils.isBlank(returnUrl)) {
             returnUrl = ui.pageLink("coreapps", "clinicianfacing/patient", Collections.singletonMap("patientId", (Object) patient.getId()));
         }
+
+		List<Extension> includeFragments = appFrameworkService.getExtensionsForCurrentUser(ALLERGIES_PAGE_INCLUDE_FRAGMENT_EXTENSION_POINT);
+		Collections.sort(includeFragments);
+		model.addAttribute("includeFragments", includeFragments);
 
 		model.addAttribute("patient", patient);
 		model.addAttribute("allergies", allergies);

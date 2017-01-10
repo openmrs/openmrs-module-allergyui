@@ -40,6 +40,7 @@
 		<openMRSVersion>1.9.9</openMRSVersion>
         <allergyapiVersion>1.4</allergyapiVersion>
         <uiframeworkVersion>3.9</uiframeworkVersion>
+		<appframeworkVersion>2.9</appframeworkVersion>
         <uicommonsVersion>2.1</uicommonsVersion>
 	</properties>
 

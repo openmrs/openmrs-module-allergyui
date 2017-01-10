@@ -11,6 +11,13 @@
     ];
 </script>
 
+<% if(includeFragments){
+    includeFragments.each{ %>
+        ${ ui.includeFragment(it.extensionParams.provider, it.extensionParams.fragment, [ patient: patient])}
+<%   }
+} %>
+
+
 ${ ui.includeFragment("coreapps", "patientHeader", [ patient: patient ]) }
 
 ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
