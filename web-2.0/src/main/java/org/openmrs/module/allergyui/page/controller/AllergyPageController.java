@@ -14,6 +14,7 @@
 package org.openmrs.module.allergyui.page.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -170,7 +171,7 @@ public class AllergyPageController {
 		
 		model.addAttribute("allergy", allergy);
         model.addAttribute("returnUrl", returnUrl);
-		model.addAttribute("allergenTypes", AllergenType.values());
+		model.addAttribute("allergenTypes", Arrays.copyOfRange(AllergenType.values(), 0, 3));
 		model.addAttribute("unknownConcept", unknownConcept);
 		
 		String unknownConceptUuid = unknownConcept.getUuid();
