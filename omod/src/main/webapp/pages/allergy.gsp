@@ -126,7 +126,7 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
 
 	    <div id="comment">
 	        <label>${ ui.message("allergyui.comment") }:</label>
-	        <textarea id="allergy-comment" maxlength="1024" name="comment">${allergy.comment != null ? allergy.comment : ""}</textarea>
+	        <textarea id="allergy-comment" maxlength="1024" name="comment">${allergy.comment != null ? ui.encodeHtmlContent(allergy.comment) : ""}</textarea>
 	    </div>
 
 	    <div id="actions">
