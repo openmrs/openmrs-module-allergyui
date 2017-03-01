@@ -171,7 +171,7 @@ public class AllergyPageController {
 		
 		model.addAttribute("allergy", allergy);
         model.addAttribute("returnUrl", returnUrl);
-		model.addAttribute("allergenTypes", Arrays.copyOfRange(AllergenType.values(), 0, 3));
+		model.addAttribute("allergenTypes", AllergenType.values());
 		model.addAttribute("unknownConcept", unknownConcept);
 		
 		String unknownConceptUuid = unknownConcept.getUuid();
@@ -186,7 +186,7 @@ public class AllergyPageController {
 		model.addAttribute("foodAllergens", getSortedSetMembers(concept, comparator, unknownConceptUuid));
 		//environmental allergens
 		concept = properties.getEnvironmentAllergensConcept();
-		model.addAttribute("environmentalAllergens", getSortedSetMembers(concept, comparator, unknownConceptUuid));
+		model.addAttribute("otherAllergens", getSortedSetMembers(concept, comparator, unknownConceptUuid));
 		
 		//allergy reactions
 		concept = properties.getAllergyReactionsConcept();

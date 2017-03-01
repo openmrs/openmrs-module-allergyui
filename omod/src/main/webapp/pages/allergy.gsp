@@ -20,7 +20,7 @@
     def allergensByType = [
         DRUG: drugAllergens,
         FOOD: foodAllergens,
-        ENVIRONMENT: environmentalAllergens
+        OTHER: otherAllergens
     ]
 %>
 <script type="text/javascript">
