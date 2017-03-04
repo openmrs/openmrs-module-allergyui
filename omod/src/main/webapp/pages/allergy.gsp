@@ -20,7 +20,7 @@
     def allergensByType = [
         DRUG: drugAllergens,
         FOOD: foodAllergens,
-        ENVIRONMENT: environmentalAllergens
+        OTHER: otherAllergens
     ]
 %>
 <script type="text/javascript">
@@ -60,11 +60,11 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
             <div id="allergens">
 
                 <div id="types" class="button-group horizontal">
-                    <% allergenTypes.each { category -> %>
+                    <% allergenTypes.each { category ->  if (category.name()!="ENVIRONMENT") { %>
                     <label class="button small" ng-model="allergenType" btn-radio="'${ui.format(category)}'" ng-class="{ confirm: allergenType == '${ui.format(category)}' }">
                         ${ category }
                     </label>
-                    <% } %>
+                    <% } } %>
                 </div>
 
                 <% allergensByType.each {

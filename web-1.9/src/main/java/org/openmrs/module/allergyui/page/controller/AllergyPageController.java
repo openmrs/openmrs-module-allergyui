@@ -185,7 +185,7 @@ public class AllergyPageController {
 		model.addAttribute("foodAllergens", getSortedSetMembers(concept, comparator, unknownConceptUuid));
 		//environmental allergens
 		concept = properties.getEnvironmentAllergensConcept();
-		model.addAttribute("environmentalAllergens", getSortedSetMembers(concept, comparator, unknownConceptUuid));
+		model.addAttribute("otherAllergens", getSortedSetMembers(concept, comparator, unknownConceptUuid));
 		
 		//allergy reactions
 		concept = properties.getAllergyReactionsConcept();
