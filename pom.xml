@@ -4,7 +4,7 @@
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>allergyui</artifactId>
-	<version>1.8.0-SNAPSHOT</version>
+	<version>1.8.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Allergy UI Module</name>
 	<description>Provides user interface for managing patient allergies</description>
