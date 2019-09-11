@@ -22,7 +22,11 @@ ${ ui.includeFragment("coreapps", "patientHeader", [ patient: patient ]) }
 
 ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
 
-<% ui.includeJavascript("allergyui", "allergies.js") %>
+<% 
+    ui.includeJavascript("allergyui", "allergies.js") 
+    ui.includeJavascript("appui", "jquery-3.4.1.min.js")
+%>
+
 
 ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
 <h2>
