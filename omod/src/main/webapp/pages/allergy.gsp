@@ -58,7 +58,6 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
 
         <% if (!isEdit) { %>
             <div id="allergens">
-
                 <div id="types" class="button-group horizontal">
                     <% allergenTypes.each { category ->  if (category.name()!="ENVIRONMENT") { %>
                     <label class="button small" ng-model="allergenType" btn-radio="'${ui.format(category)}'" ng-class="{ confirm: allergenType == '${ui.format(category)}' }">
@@ -66,7 +65,6 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
                     </label>
                     <% } } %>
                 </div>
-
                 <% allergensByType.each {
                     def typeName = it.key
                     def allergens = it.value
@@ -75,7 +73,7 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
                         <% allergens.each { allergen -> %>
                         <li>
                             <% if (allergen.id == otherNonCodedConcept.id) { %>
-                                <input id="allergen-${ typeName }" type="radio" name="codedAllergen" value="${allergen.id}" class="coded_allergens" ng-model="allergen"
+                                <input id="allergen-${allergen.id}" type="radio" name="codedAllergen" value="${allergen.id}" class="coded_allergens" ng-model="allergen" ng-click="checkOtherRadioButton()"
                                     ${(allergy.allergen != null && allergen == allergy.allergen.codedAllergen) ? "checked=checked" : ""}/>
                             <% } else { %>
                                 <input id="allergen-${allergen.id}" type="radio" name="codedAllergen" value="${allergen.id}" class="coded_allergens" ng-model="allergen"
