@@ -1,88 +1,90 @@
-label {
-  padding-right: 10px;
-
-  &.heading {
-    margin-bottom: 10px;
-  }
-}
-
-#severities {
+#allergy {
   label {
-    display: inline;
-    padding-right: 20px;
+    padding-right: 10px;
+
+    &.heading {
+      margin-bottom: 10px;
+    }
   }
-}
 
-.inline {
-    display: inline;
-}
+  #severities {
+    label {
+      display: inline;
+      padding-right: 20px;
+    }
+  }
 
-#allergy > form {
-    width: 100%;
-}
+  .inline {
+      display: inline;
+  }
 
-#allergens, #reactions {
-  vertical-align: top;
-  display: inline-block;
+  form {
+      width: 100%;
+  }
 
-  label {
-    margin-top: 2px;
+  #allergens, #reactions {
+    vertical-align: top;
     display: inline-block;
+
+    label {
+      margin-top: 2px;
+      display: inline-block;
+    }
   }
-}
 
-#allergens {
-  width: 55%;
-}
-
-#reactions {
-  ul {
-    column-count: 2;
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
+  #allergens {
+    width: 55%;
   }
-}
 
-.horizontal {
-  display: table;
-}
-
-.horizontal > * {
-  display: table-cell;
-}
-
-form > div {
-  margin-bottom: 15px;
-}
-
-// required since we don't include bootstrap css, which angular-ui relies on
-// TODO: clean this up and move it to the style guide
-#types.button-group {
-  > .button {
-    margin-left: -1px;
-    margin-right: 0px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-
-    &:first-child {
-      margin-left: 0;
-      border-top-left-radius: 6px;
-      border-bottom-left-radius: 6px;
+  #reactions {
+    ul {
+      column-count: 2;
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
     }
+  }
 
-    &:last-child {
-      border-top-right-radius: 6px;
-      border-bottom-right-radius: 6px;
-    }
+  .horizontal {
+    display: table;
+  }
 
-    &:not(:first-child) {
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
-    }
+  .horizontal > * {
+    display: table-cell;
+  }
 
-    &:not(:last-child) {
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
+  form > div {
+    margin-bottom: 15px;
+  }
+
+  // required since we don't include bootstrap css, which angular-ui relies on
+  // TODO: clean this up and move it to the style guide
+  #types.button-group {
+    > .button {
+      margin-left: -1px;
+      margin-right: 0px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+
+      &:first-child {
+        margin-left: 0;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+
+      &:not(:first-child) {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
+
+      &:not(:last-child) {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
     }
   }
 }
