@@ -33,7 +33,7 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
 	${ ui.message("allergyui.allergies") }
 </h2>
 
-<table id="allergies" width="100%" border="1" cellspacing="0" cellpadding="2">
+<table id="allergies" class="allergies" width="100%" border="1" cellspacing="0" cellpadding="2">
     <thead>
 	    <tr>
 	        <th>${ ui.message("allergyui.allergen") }</th>

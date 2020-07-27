@@ -1,19 +1,21 @@
 @import "variables";
 
-.allergyStatus {
-	font-weight: bold;
-}
+.allergies {
+	.allergyStatus {
+		font-weight: bold;
+	}
 
-.allergyReaction {
-	color: $subtleText;
-}
+	.allergyReaction {
+		color: $subtleText;
+	}
 
-form {
-	display: inline;
-}
+	form {
+		display: inline;
+	}
 
-td { 
-	max-width: 100px; 
-	text-overflow: ellipsis; 
-	overflow: hidden;
+	td { 
+		max-width: 100px; 
+		text-overflow: ellipsis; 
+		overflow: hidden;
+	}
 }
