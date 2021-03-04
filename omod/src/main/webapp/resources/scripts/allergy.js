@@ -46,6 +46,10 @@ app.controller("allergyController", [ '$scope', function($scope) {
         $('#allergen-' + $scope.allergenType).attr('checked', true);
     };
 
+    $scope.checkOtherRadioButton = function() {
+        document.getElementById('allergen-' + $scope.allergen).checked = true;
+    }
+
     $scope.otherReactionFocus = function(reactionId) {
         $('#reaction-' + reactionId).attr('checked', true);
     };
