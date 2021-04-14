@@ -5,6 +5,7 @@
 	ui.includeJavascript("allergyui", "allergy.js")
     ui.includeJavascript("uicommons", "angular-resource.min.js")
     ui.includeJavascript("uicommons", "angular-common.js")
+    ui.includeJavascript("uicommons", "angular-sanitize.min.js")
     ui.includeJavascript("uicommons", "ngDialog/ngDialog.js")
     ui.includeJavascript("uicommons", "ngDialog/ngDialog.js")
     ui.includeJavascript("uicommons", "services/conceptSearchService.js")
