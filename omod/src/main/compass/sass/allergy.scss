@@ -7,6 +7,11 @@
     }
   }
 
+  #types {
+  margin: 10px 0px;
+}
+
+
   #severities {
     label {
       display: inline;
@@ -15,14 +20,15 @@
   }
 
   .inline {
-      display: inline;
+    display: inline;
   }
 
   form {
-      width: 100%;
+    width: 100%;
   }
 
-  #allergens, #reactions {
+  #allergens,
+  #reactions {
     vertical-align: top;
     display: inline-block;
 
@@ -48,18 +54,18 @@
     display: table;
   }
 
-  .horizontal > * {
+  .horizontal>* {
     display: table-cell;
   }
 
-  form > div {
+  form>div {
     margin-bottom: 15px;
   }
 
   // required since we don't include bootstrap css, which angular-ui relies on
   // TODO: clean this up and move it to the style guide
   #types.button-group {
-    > .button {
+    >.button {
       margin-left: -1px;
       margin-right: 0px;
       padding-top: 4px;
