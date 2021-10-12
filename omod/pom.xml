@@ -20,39 +20,39 @@
 
 	<dependencies>
 
-		<!-- 
-		Add other dependencies from parent's pom: 
-		<dependency> 
-			<groupId>org.other.library</groupId> 
-			<artifactId>library-name</artifactId> 
-		</dependency> 
+		<!--
+		Add other dependencies from parent's pom:
+		<dependency>
+			<groupId>org.other.library</groupId>
+			<artifactId>library-name</artifactId>
+		</dependency>
 		-->
-		
+
 		<!-- Begin OpenMRS modules -->
-		
+
 		<dependency>
 			<groupId>${project.parent.groupId}</groupId>
 			<artifactId>${project.parent.artifactId}-api</artifactId>
 			<version>${project.parent.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
             <groupId>${project.parent.groupId}</groupId>
             <artifactId>${project.parent.artifactId}-web-1.9</artifactId>
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
             <artifactId>${project.parent.artifactId}-web-2.0</artifactId>
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
-				
+
 		<!-- End OpenMRS modules -->
-		
+
 
 		<!-- Begin OpenMRS core -->
 
@@ -67,7 +67,7 @@
 			<artifactId>openmrs-web</artifactId>
 			<type>jar</type>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.openmrs.api</groupId>
 			<artifactId>openmrs-api</artifactId>
@@ -85,9 +85,9 @@
 			<artifactId>openmrs-test</artifactId>
 			<type>pom</type>
 		</dependency>
-		
+
 		<!-- End OpenMRS core -->
-		
+
 		<dependency>
 			<groupId>rubygems</groupId>
 			<artifactId>compass</artifactId>
@@ -138,7 +138,7 @@
 						<includeEmptyDirs>true</includeEmptyDirs>
 					</configuration>
 				</plugin>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -250,7 +250,8 @@
 			<plugin>
 				<groupId>de.saumya.mojo</groupId>
 				<artifactId>gem-maven-plugin</artifactId>
-				<extensions>true</extensions>
+                <version>1.1.8</version>
+                <extensions>true</extensions>
 				<executions>
 					<execution>
 						<goals>
