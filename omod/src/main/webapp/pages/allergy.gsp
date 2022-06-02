@@ -79,14 +79,14 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
                                 <input id="allergen-${allergen.id}" type="radio" name="codedAllergen" value="${allergen.id}" class="coded_allergens" ng-model="allergen"
                                     ${(allergy.allergen != null && allergen == allergy.allergen.codedAllergen) ? "checked=checked" : ""}/>
                             <% } %>
-                            <label for="allergen-${allergen.id}" id="allergen-${allergen.id}-label" class="coded_allergens_label" ng-click="otherFieldFocus()">${ui.format(allergen)}</label>
+                            <label for="allergen-${allergen.id}" id="allergen-${allergen.id}-label" class="coded_allergens_label" ng-show="otherFieldFocus()">${ui.format(allergen)}</label>
 
                             <% if (allergen.id == otherNonCodedConcept.id) { %>
                                 <% if(typeName == 'DRUG') { %>
                                     <input type="hidden" name="otherCodedAllergen" ng-value="otherCodedAllergen.concept ? 'CONCEPT:'+otherCodedAllergen.concept.uuid : 'NON_CODED:'+otherCodedAllergen.word">
-                                    <coded-or-free-text-answer id="${typeName}otherCodedAllergen" concept-classes="8d490dfc-c2cc-11de-8d13-0010c6dffd0f,b4535251-9183-4175-959e-9ee67dc71e78" ng-model="otherCodedAllergen" ng-click="otherFieldFocus()" />
+                                    <coded-or-free-text-answer id="${typeName}otherCodedAllergen" concept-classes="8d490dfc-c2cc-11de-8d13-0010c6dffd0f,b4535251-9183-4175-959e-9ee67dc71e78" ng-model="otherCodedAllergen" ng-show="otherFieldFocus()" />
                                 <% } else {%>
-                            	    <input type="text" maxlength="255" id="${typeName}nonCodedAllergen" name="nonCodedAllergen" ng-model="nonCodedAllergen" ng-focus="otherFieldFocus()"/>
+                            	    <input type="text" maxlength="255" id="${typeName}nonCodedAllergen" name="nonCodedAllergen" ng-model="nonCodedAllergen" ng-show="otherFieldFocus()"/>
                                 <% } %>
                             <% } %>
                         </li>
@@ -104,7 +104,7 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
                     <input ng-model="reaction${reaction.id}" type="checkbox" id="reaction-${reaction.id}" class="allergy-reaction" name="allergyReactionConcepts" value="${reaction.id}" ng-init="reaction${reaction.id} = ${ allergyReactionConcepts.contains(reaction) }" />
                     <label for="reaction-${reaction.id}">${ui.format(reaction)}</label>
                     <% if (reaction.id == otherNonCodedConcept.id) { %>
-                    	<input type="text" maxlength="255" name="reactionNonCoded" ng-focus="otherReactionFocus(${reaction.id})" <% if (allergy.reactionNonCoded) { %> value="${allergy.reactionNonCoded}" <% } %>/>
+                    	<input type="text" maxlength="255" name="reactionNonCoded" ng-show="otherReactionFocus(${reaction.id})" <% if (allergy.reactionNonCoded) { %> value="${allergy.reactionNonCoded}" <% } %>/>
                     <% } %>
                 </li>
             <% } %>
