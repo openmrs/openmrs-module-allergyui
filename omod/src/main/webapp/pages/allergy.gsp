@@ -129,7 +129,7 @@ ${ ui.includeFragment("allergyui", "removeAllergyDialog") }
 	    </div>
 
 	    <div id="actions">
-	        <input type="submit" id="addAllergyBtn" class="confirm right" value="${ ui.message("coreapps.save") }" <% if(!isEdit){ %> ng-disabled="!canSave()" <% } %>/>
+	        <input type="submit" id="addAllergyBtn" class="confirm right" onclick="this.form.submit(); this.disabled=true" value="${ ui.message("coreapps.save") }" <% if(!isEdit){ %> ng-disabled="!canSave()" <% } %>/>
 	        <input type="button" class="cancel" value="${ ui.message("coreapps.cancel") }"
 	         onclick="location.href='${ ui.pageLink("allergyui", "allergies", [patientId: patient.id, returnUrl: returnUrl ]) }'" />
 	    </div>
