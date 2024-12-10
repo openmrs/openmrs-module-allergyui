@@ -106,19 +106,21 @@ ${ ui.includeFragment("uicommons", "infoAndErrorMessage")}
 <br/>
 
 <% if (hasModifyAllergiesPrivilege) { %>
+  <div class="allergies actions">
     <button class="cancel" onclick="location.href='${ ui.encodeHtml(returnUrl) }'">
         ${ ui.message("uicommons.return") }
     </button>
-	<button id ="allergyui-addNewAllergy" class="confirm right" onclick="location.href='${ ui.pageLink("allergyui", "allergy", [patientId: patient.id, returnUrl: returnUrl]) }'">
-	    ${ ui.message("allergyui.addNewAllergy") }
-	</button>
+    <button id ="allergyui-addNewAllergy" class="confirm right" onclick="location.href='${ ui.pageLink("allergyui", "allergy", [patientId: patient.id, returnUrl: returnUrl]) }'">
+        ${ ui.message("allergyui.addNewAllergy") }
+    </button>
 
-	<form method="POST" action="${ ui.pageLink("allergyui", "allergies") }">
-	    <input type="hidden" name="patientId" value="${patient.id}"/>
-        <input type="hidden" name="returnUrl" value="${ ui.encodeHtml(returnUrl) }"/>
-	    <input type="hidden" name="action" value="confirmNoKnownAllergies"/>
-		<button type="submit" class="confirm right" style="<% if (allergies.allergyStatus != "Unknown") { %> display:none; <% } %>">
-		    ${ ui.message("allergyui.noKnownAllergy") }
-		</button>
-	</form>
+    <form method="POST" action="${ ui.pageLink("allergyui", "allergies") }">
+        <input type="hidden" name="patientId" value="${patient.id}"/>
+          <input type="hidden" name="returnUrl" value="${ ui.encodeHtml(returnUrl) }"/>
+        <input type="hidden" name="action" value="confirmNoKnownAllergies"/>
+      <button type="submit" class="confirm right" style="<% if (allergies.allergyStatus != "Unknown") { %> display:none; <% } %>">
+          ${ ui.message("allergyui.noKnownAllergy") }
+      </button>
+    </form>
+  </div>
 <% } %>
